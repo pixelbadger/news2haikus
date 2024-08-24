@@ -11,7 +11,8 @@ internal class OpenAINewsHaikuGenerator : INewsHaikuGenerator
         "User input consists of a series of images of today's newspaper headlines. " +
         "Analyze the headlines and other text in these images, and generate four " +
         "haiku that capture the spirit and essence of today's news. " +
-        "Do not under any circumstances include any additional text like titles or headers, but you must separate each haiku with three dashes (---).";
+        "Do not under any circumstances include any additional text like titles or " +
+        "headers, but you must separate each haiku with three dashes (---).";
 
     private readonly ChatClient _chatClient;
 

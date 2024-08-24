@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Pixelbadger.NewsHaiku.Infrastructure\Pixelbadger.NewsHaiku.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
 </Project>

@@ -37,11 +37,24 @@
             if (response.ok) {
 
                 const json = await response.json();
-                let html = "";
+                let html =
+                    "<table id=\"haiku\">" +
+                    "   <tbody>" +
+                    "       <tr>" +
+                    `           <td><blockquote style="white-space: pre-line">${json.haiku[0]}</blockquote></td>` +
+                    `           <td><blockquote style="white-space: pre-line">${json.haiku[1]}</blockquote></td>` +
+                    "       </tr>" +
+                    "       <tr>" +
+                    `           <td><blockquote style="white-space: pre-line">${json.haiku[2]}</blockquote></td>` +
+                    `           <td><blockquote style="white-space: pre-line">${json.haiku[3]}</blockquote></td>` +
+                    "       </tr>" +
+                    "   </tbody>" +
+                    "</table>";
 
-                json.haiku.forEach(v => {
-                    html = html + `<blockquote style="white-space: pre-line">${v}</blockquote>`
-                });
+
+                /*json.haiku.forEach(v => {
+                    html = html + `<tr><td style="white-space: pre-line">${v}</td></td>`
+                });*/
 
                 const haikuDiv = document.getElementById("haiku");
                 haikuDiv.className = "";
@@ -53,12 +66,14 @@
 <body>
     <h1>News2Haikus</h1>
     <p>Fatigued and/or disgusted by today's print news? Fear not!</p>
-    <p>At News2Haikus we read the front pages of the UK's top newspapers, then compose a set of haiku capturing the essence of the day's news.</p>
-    <h2>Today's Haiku</h2>
+    <p>At News2Haikus we read the front pages of the UK's top newspapers, so you don't have to.</p>
+    <p>Our expert* poets then compose a set of haiku capturing the essence of the day's news.</p>
+    <h2>Our freshest haiku</h2>
     <div id="haiku" class="loading">
         Please wait, our poets are composing
     </div>
-    <p>Our poets compose new haiku every thirty minutes.</p>
+    <p>New haiku composed every thirty minutes.</p>
     <p>New front pages per the antediluvian time-scales of the dead-tree media :-/</p>
+    <p><em>*Expertise is offered without warranty or guarantee. May contain robots.</em></p>
 </body>
 </html>
