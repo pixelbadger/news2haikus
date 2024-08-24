@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News2Haikus</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .loading {
+        }
+
+            .loading:after {
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: bottom;
+                -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+                animation: ellipsis steps(4,end) 900ms infinite;
+                content: "\2026"; /* ascii code for the ellipsis character */
+                width: 0px;
+            }
+
+        @keyframes ellipsis {
+            to {
+                width: 1.2em;
+            }
+        }
+
+        @-webkit-keyframes ellipsis {
+            to {
+                width: 1.2em;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = async () => {
+            const response = await fetch("/haiku/news");
+            if (response.ok) {
+
+                const json = await response.json();
+                let html = "";
+
+                json.haiku.forEach(v => {
+                    html = html + `<blockquote style="white-space: pre-line">${v}</blockquote>`
+                });
+
+                const haikuDiv = document.getElementById("haiku");
+                haikuDiv.className = "";
+                haikuDiv.innerHTML = html;
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>News2Haikus</h1>
+    <p>Fatigued and/or disgusted by today's print news? Fear not!</p>
+    <p>At News2Haikus we read the front pages of the UK's top newspapers, then compose a set of haiku capturing the essence of the day's news.</p>
+    <h2>Today's Haiku</h2>
+    <div id="haiku" class="loading">
+        Please wait, our poets are composing
+    </div>
+    <p>Our poets compose new haiku every thirty minutes.</p>
+    <p>New front pages per the antediluvian time-scales of the dead-tree media :-/</p>
+</body>
+</html>
