@@ -46,7 +46,10 @@ internal class GetNewsHaikuRequestHandler : IRequestHandler<GetNewsHaikuRequest,
         }
 
         images = await _newspaperFrontPageScraper.ScrapeImageDataAsync();
-        _imageCache.Put(images, DateTimeOffset.UtcNow.AddDays(1).Date);
+
+        // expiry is now + tomorrow's date + 7 hours (so 7am tomorrow...)
+        DateTimeOffset expiryTime = DateTimeOffset.UtcNow.AddDays(1).Date.AddHours(7);
+        _imageCache.Put(images, expiryTime);
 
         return images;
     }

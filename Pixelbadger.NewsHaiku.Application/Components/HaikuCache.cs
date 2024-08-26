@@ -4,7 +4,7 @@ namespace Pixelbadger.NewsHaiku.Application.Components;
 
 internal class HaikuCache : IHaikuCache
 {
-    private static readonly TimeSpan _expiration = TimeSpan.FromMinutes(30);
+    private static readonly TimeSpan _expiration = TimeSpan.FromHours(12);
     private const string CacheKey = "HaikuCacheEntry";
 
     private readonly IMemoryCache _memoryCache;

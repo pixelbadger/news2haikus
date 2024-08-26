@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>News2Haikus</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
@@ -51,11 +55,6 @@
                     "   </tbody>" +
                     "</table>";
 
-
-                /*json.haiku.forEach(v => {
-                    html = html + `<tr><td style="white-space: pre-line">${v}</td></td>`
-                });*/
-
                 const haikuDiv = document.getElementById("haiku");
                 haikuDiv.className = "";
                 haikuDiv.innerHTML = html;
@@ -65,15 +64,21 @@
 </head>
 <body>
     <h1>News2Haikus</h1>
-    <p>Fatigued and/or disgusted by today's print news? Fear not!</p>
-    <p>At News2Haikus we read the front pages of the UK's top newspapers, so you don't have to.</p>
+    <p>Fatigued and/or repulsed by today's print news? Fear not!</p>
+    <p>At News2Haikus we read the front pages of the UK's top newspapers - so you don't have to.</p>
     <p>Our expert* poets then compose a set of haiku capturing the essence of the day's news.</p>
     <h2>Our freshest haiku</h2>
     <div id="haiku" class="loading">
         Please wait, our poets are composing
     </div>
-    <p>New haiku composed every thirty minutes.</p>
+    <h2>Footnotes</h2>
+    <p>New haiku composed every twelve hours.</p>
     <p>New front pages per the antediluvian time-scales of the dead-tree media :-/</p>
     <p><em>*Expertise is offered without warranty or guarantee. May contain robots.</em></p>
+    <details>
+        <summary>Credits</summary>
+        <p>Theme by <a href="https://github.com/kognise/water.css">water.css</a></p>
+        <p>Favicon by <a href="https://github.com/twitter/twemoji">twemoji</a></p>
+    </details>
 </body>
 </html>
